@@ -67,9 +67,7 @@ export default function FAQSection() {
                   onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                 >
                   <span>{faq.q}</span>
-                  <svg className="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
+                  <img src="/svgs/chevron-down.svg" alt="" width="20" height="20" className="faq-chevron" aria-hidden="true" />
                 </button>
                 <div className="faq-answer">
                   <p>{faq.a}</p>

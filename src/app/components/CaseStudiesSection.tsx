@@ -61,9 +61,7 @@ export default function CaseStudiesSection() {
                 onClick={() => setExpanded(expanded === i ? -1 : i)}
               >
                 {expanded === i ? "Show Less" : "Read Full Story"}
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: expanded === i ? "rotate(180deg)" : "" }}>
-                  <path d="m6 9 6 6 6-6"/>
-                </svg>
+                <img src="/svgs/chevron-down.svg" alt="" width="16" height="16" style={{ transform: expanded === i ? "rotate(180deg)" : "" }} />
               </button>
             </article>
           ))}

@@ -128,9 +128,15 @@ export default function Header() {
             aria-expanded={menuOpen}
             onClick={toggleMenu}
           >
-            <span />
-            <span />
-            <span />
+            {menuOpen ? (
+              <img src="/svgs/x-mark.svg" alt="" width="20" height="20" aria-hidden="true" />
+            ) : (
+              <>
+                <span />
+                <span />
+                <span />
+              </>
+            )}
           </button>
         </div>
       </header>

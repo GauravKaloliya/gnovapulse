@@ -15,6 +15,7 @@ export default function FireflyCanvas() {
 
   // 36. Firefly Particles
   useEffect(() => {
+    if (window.innerWidth < 768) return;
     const canvas = fireflyRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -81,6 +82,7 @@ export default function FireflyCanvas() {
 
   // 38. Data Stream
   useEffect(() => {
+    if (window.innerWidth < 768) return;
     const canvas = streamRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -127,6 +129,7 @@ export default function FireflyCanvas() {
 
   // 40. Mouse-reactive Light Field
   useEffect(() => {
+    if (window.innerWidth < 768) return;
     const canvas = lightfieldRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");

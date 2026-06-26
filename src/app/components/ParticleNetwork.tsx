@@ -16,6 +16,7 @@ export default function ParticleNetwork() {
   const animRef = useRef(0);
 
   useEffect(() => {
+    if (window.innerWidth < 768) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -123,6 +124,7 @@ export default function ParticleNetwork() {
   return (
     <canvas
       ref={canvasRef}
+      className="particle-network-canvas"
       style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none" }}
       aria-hidden="true"
     />

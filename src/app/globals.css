@@ -19,6 +19,8 @@ body {
   background-color: var(--color-mint);
   color: var(--color-oceanic);
   overflow-x: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .container {
@@ -44,7 +46,7 @@ body {
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: 2.25rem;
+  font-size: clamp(1.75rem, 1.85vw + 0.862rem, 2.25rem);
   font-weight: 700;
   line-height: 1.15;
   color: var(--color-oceanic);
@@ -259,9 +261,9 @@ body {
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: 3.5rem;
+  font-size: clamp(1.75rem, 3.89vw + 0.583rem, 3.5rem);
   font-weight: 800;
-  line-height: 1.08;
+  line-height: 1.15;
   color: var(--color-oceanic);
   margin-bottom: 1.25rem;
 }
@@ -790,7 +792,7 @@ body {
 
 .cta-title {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 2.78vw + 0.416rem, 2.5rem);
   font-weight: 800;
   color: var(--color-oceanic);
   margin-bottom: 1rem;
@@ -908,13 +910,8 @@ body {
   padding: 0.5rem 0;
 }
 
-/* Scroll Snap */
-html {
-  scroll-snap-type: y proximity;
-}
-
+/* Scroll Snap — only on hero, removed from html to prevent smooth-scroll freeze */
 section[id], div[id] {
-  scroll-snap-align: start;
   scroll-margin-top: 4rem;
 }
 
@@ -1286,18 +1283,6 @@ section[id], div[id] {
 }
 
 /* Typing Cursor */
-.typing-cursor {
-  display: inline-block;
-  font-weight: 300;
-  color: var(--color-saffron);
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
 /* Scroll Progress */
 .scroll-progress {
   position: fixed;
@@ -1904,7 +1889,8 @@ section[id], div[id] {
   font-size: 0.8125rem;
   line-height: 1.7;
   color: var(--color-mint);
-  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 /* Roadmap */
@@ -2764,10 +2750,6 @@ section[id], div[id] {
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .hero-title { font-size: 2.75rem; }
-}
-
 @media (max-width: 768px) {
   .hero-inner {
     grid-template-columns: 1fr;
@@ -2775,7 +2757,6 @@ section[id], div[id] {
     text-align: center;
   }
 
-  .hero-title { font-size: 2.25rem; }
   .hero-desc { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
   .hero-stats { justify-content: center; gap: 2rem; }
@@ -2783,7 +2764,6 @@ section[id], div[id] {
   .hero-cube { width: 200px; height: 200px; }
   .cube-icon { width: 80px; height: 80px; }
 
-  .section-title { font-size: 1.75rem; }
   .section-desc { font-size: 1rem; }
 
   .steps-grid { grid-template-columns: 1fr; gap: 2rem; max-width: 24rem; margin: 0 auto; }
@@ -2832,13 +2812,19 @@ section[id], div[id] {
   .nav-links, .header-actions { display: none; }
   .mobile-menu-btn { display: flex; }
 
-  .cta-title { font-size: 1.75rem; }
-
   .pricing-amount .pricing-value { font-size: 2.5rem; }
+
+  .hero-wave-canvas,
+  .particle-network-canvas,
+  .cursor-glow-trail,
+  .depth-layer,
+  .firefly-canvas,
+  .data-stream-canvas,
+  .lightfield-canvas,
+  .noise-overlay { display: none; }
 }
 
 @media (max-width: 480px) {
-  .hero-title { font-size: 1.75rem; }
   .hero-stats { flex-direction: column; gap: 0.75rem; align-items: center; }
   .hero-actions { flex-direction: column; }
   .hero-cube { width: 160px; height: 160px; }
@@ -3575,7 +3561,7 @@ section[id], div[id] {
   align-items: center;
   justify-content: center;
   background: var(--color-oceanic);
-  transition: opacity 400ms ease-out, visibility 400ms ease-out;
+  transition: opacity 300ms ease-out, visibility 300ms ease-out;
 }
 .film-slate.hidden {
   opacity: 0;
@@ -3591,7 +3577,7 @@ section[id], div[id] {
   border-radius: 0.5rem;
   position: relative;
   transform: rotate(-3deg);
-  animation: slateDrop 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  animation: slateDrop 0.3s cubic-bezier(0.34,1.56,0.64,1) forwards;
 }
 @keyframes slateDrop {
   0% { transform: rotate(-3deg) translateY(-120px); opacity: 0; }
@@ -3657,7 +3643,7 @@ section[id], div[id] {
 .logo-sting {
   font-size: 4rem;
   color: var(--color-saffron);
-  animation: logoSting 0.8s cubic-bezier(0.22,1,0.36,1) forwards;
+  animation: logoSting 0.4s cubic-bezier(0.22,1,0.36,1) forwards;
 }
 @keyframes logoSting {
   0% { transform: scale(0); opacity: 0; }
